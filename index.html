@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincian Acara</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="menu-dropdown">
+            <button class="menu-btn" onclick="toggleDropdown()">☰ Menu</button>
+            <div class="dropdown-content" id="dropdown-menu">
+                <a href="#">Home</a>
+                <a href="#usulanSection">Usulan</a>
+                <a href="#">Hubungi Kami</a>
+                
+            </div>
+        </div>
+
+        <div class="logo">Smeker</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" data-aos="fade-up">
+        <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1200">Rincian Acara Foto Angkatan 2025</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">Kami Dari Panitia Foto Angkatan</p>
+        <a href="#" class="btn hero-btn" data-aos="fade-up" data-aos-delay="500">LA FOR TUNA</a>
+    </header>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        <h2 data-aos="fade-right">Manfaat Dan Tujuan Pentingnya Acara</h2>
+        <div class="info-card" data-aos="fade-up">
+            <i data-lucide="thumbs-up"></i>
+            <h4>Manfaat</h4>
+            <p>1. Kenangan bersama teman-teman seangkatan.</p>
+            <p>2. Sebagai kenang-kenangan di masa depan.</p>
+            <p>3. Menjadi bukti perjalanan bersama di sekolah.</p>
+        </div>
+
+        <div class="info-card" data-aos="fade-up">
+            <i data-lucide="target"></i>
+            <h4>Tujuan</h4>
+            <p>Tujuan foto angkatan adalah untuk mencatat momen penting dalam perjalanan pendidikan, mengabadikan hubungan dan kebersamaan, serta sebagai kenangan yang bisa dikenang di masa depan.</p>
+        </div>
+
+        <h2 data-aos="fade-right">Estimasi Anggaran Siswa-Siswi</h2>
+        <div class="info-card" data-aos="fade-up">
+            <p>Dengan adanya foto angkatan untuk kelas 12, setiap siswa dan siswi akan dikenakan biaya sebesar Rp 35.000,- per orang. Berdasarkan target jumlah siswa sebanyak 300 orang, total anggaran yang terkumpul adalah:
+                Rp 35.000 x 300 = Rp 10.500.000
+            </p>
+        </div>
+
+        <h2 data-aos="fade-right">Estimasi Harga Dan Konsumsi Foto Grafer</h2>
+        <div class="info-card" data-aos="fade-up">
+            <h4>Cooming soon</h4>
+            <p>Xxxx
+            Xxxx</p>
+        </div>
+
+        <!-- Section Usulan -->
+        <section id="usulanSection">
+            <h2 data-aos="fade-right">Kirim Usulan Anda</h2>
+            <div class="usulan-form-wrapper">
+                <form id="usulanForm">
+                    <label for="nama">Dari Kelas:</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Nama Kelas anda"><br>
+
+                    <label for="pesan">Pesan:</label>
+                    <textarea id="pesan" name="pesan" rows="4" required placeholder="Masukkan Usulan Anda"></textarea><br>
+
+                    <button type="submit">Kirim Usulan</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Smeker. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        AOS.init();
+        lucide.createIcons();
+
+        function toggleDropdown() {
+            document.getElementById("dropdown-menu").classList.toggle("show");
+        }
+
+        // Tutup dropdown jika klik di luar
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // Form untuk mengirimkan usulan ke Telegram
+        const form = document.getElementById('usulanForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Menghindari pengiriman form default
+
+            // Ambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const pesan = document.getElementById('pesan').value;
+
+            // Token bot Telegram dan chat ID
+            const botToken = '7423916662:AAFOnHQacAXdoA6dBZ-D1w9WOjBa1sUz9O0'; // Ganti dengan token bot Anda
+            const chatId = '5610020378'; // Ganti dengan chat ID Telegram Anda
+            const message = `Usulan Baru:\n\nNama: ${nama}\nPesan: ${pesan}`;
+
+            // URL untuk mengirim pesan ke Telegram menggunakan API Bot
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            // Menggunakan Fetch API untuk mengirimkan data
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('Usulan Anda telah dikirim!');
+                        form.reset(); // Reset form setelah pengiriman berhasil
+                    } else {
+                        alert('Gagal mengirim usulan. Silakan coba lagi.');
+                    }
+                })
+                .catch(error => {
+                    alert('Terjadi kesalahan. Coba lagi nanti.');
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+</body>
+</html>

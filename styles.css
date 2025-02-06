@@ -1,0 +1,249 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-start; /* Geser logo ke kiri */
+    align-items: center;
+    background: #007bff;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Tombol Menu Dropdown */
+.menu-dropdown {
+    position: relative;
+}
+
+.menu-btn {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: #ffdd57;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    top: 40px;
+    left: 0;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Logo */
+.navbar .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px; /* Geser logo ke kiri */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 150px 20px; /* Padding lebih besar untuk memberi ruang */
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient yang lebih menarik */
+    color: white;
+    position: relative;
+}
+
+/* Judul Hero */
+.hero-title {
+    font-size: 60px; /* Ukuran lebih besar */
+    font-weight: 700; /* Tebalkan judul */
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease-out; /* Animasi fade-in */
+}
+
+/* Subtitle Hero */
+.hero-subtitle {
+    font-size: 22px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out 0.5s; /* Animasi fade-in dengan delay */
+}
+
+/* Tombol Hero */
+.hero-btn {
+    padding: 12px 25px;
+    background: #ffcc00;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    box-shadow: 0px 6px 18px rgba(255, 204, 0, 0.3);
+}
+
+.hero-btn:hover {
+    background: #ffdd57;
+    box-shadow: 0px 8px 24px rgba(255, 204, 0, 0.5);
+}
+
+/* Animasi Fade In */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi zoom in untuk Hero title */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Info Cards */
+.info-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-card i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.info-card h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.info-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Usulan */
+.usulan-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#usulanForm {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#usulanForm label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+#usulanForm input, #usulanForm textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#usulanForm button {
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#usulanForm button:hover {
+    background: #005bb5;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 10px 0;
+    margin-top: 50px;
+}
